@@ -13,9 +13,29 @@ namespace ProcessoFIAP.Services
             _db = db;
         }
 
+        public async Task<Turma> BuscarTurmaPorId(int id)
+        {
+            return await _db.BuscarTurmaPorId(id);
+        }
+
         public async Task<IEnumerable<Turma>> BuscarTurmas()
         {
             return await _db.BuscarTurmas();
+        }
+
+        public async Task CriarTurma(Turma turma)
+        {
+            await _db.CriarTurma(turma);
+        }
+
+        public async Task EditarTurma(Turma turma)
+        {
+            await _db.EditarTurma(turma);
+        }
+
+        public async Task InativarTurma(int id)
+        {
+            await _db.InativarTurma(id);
         }
     }
 }

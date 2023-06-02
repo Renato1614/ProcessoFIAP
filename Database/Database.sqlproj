@@ -69,6 +69,10 @@
     <Build Include="Procedures\EditarAluno.sql" />
     <Build Include="Procedures\InativarAluno.sql" />
     <Build Include="Procedures\BuscarTodasAsTurmasAtivas.sql" />
+    <Build Include="Procedures\CriarTurma.sql" />
+    <Build Include="Procedures\BuscarTurmaPorId.sql" />
+    <Build Include="Procedures\EditarTurma.sql" />
+    <Build Include="Procedures\InativarTurma.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />

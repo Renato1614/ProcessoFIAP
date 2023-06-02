@@ -24,8 +24,8 @@
                     <th>@turma.CursoId</th>
                     <th>@turma.Ano</th>
                     <th>
-                        <a asp-controller="Aluno" asp-action="Editar" asp-route-id="@turma.Id" class="btn btn-warning">Editar</a>
-                        <btn class="btn btn-danger" onclick="InativarAluno(@turma.Id)">Inativar</btn>
+                        <a asp-controller="Turma" asp-action="Editar" asp-route-id="@turma.Id" class="btn btn-warning">Editar</a>
+                        <btn class="btn btn-danger" onclick="InativarTurma(@turma.Id)">Inativar</btn>
                     </th>
                 </tr>
             }
@@ -36,21 +36,21 @@
 
 @section Scripts{
     <script>
-        function InativarAluno(id) {
+        function InativarTurma(id) {
 
-            if (confirm("Quer mesmo inativar esse aluno?")) {
+            if (confirm("Quer mesmo inativar essa Turma?")) {
                 $.ajax({
                     method: "POST",
                     url: "/Turma/Inativar",
                     data: { id: id },
                     success: (retorno) => {
                         if (retorno == true) {
-                            alert("Aluno deletado com sucesso")
+                            alert("Turma deletado com sucesso")
                             location.reload()
                         }
                         else {
                             console.log(retorno)
-                            alert("Erro ao deletar o Aluno")
+                            alert("Erro ao deletar a Turma")
                         }
 
 

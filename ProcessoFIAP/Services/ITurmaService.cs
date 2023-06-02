@@ -6,5 +6,8 @@ namespace ProcessoFIAP.Services
     {
         Task<IEnumerable<Turma>> BuscarTurmas();
         Task CriarTurma(Turma turma);
+        Task<Turma> BuscarTurmaPorId(int id);
+        Task EditarTurma(Turma turma);
+        Task InativarTurma(int id);
     }
 }

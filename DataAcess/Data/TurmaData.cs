@@ -17,6 +17,20 @@ namespace DataAcess.Data
             _db = db;
         }
 
+        public async  Task<Turma> BuscarTurmaPorId(int id)
+        {
+            try
+            {
+                var turma =  await _db.LoadData<Turma, dynamic>("dbo.BuscarTurmaPorId", new {id=id });
+                return turma.FirstOrDefault();
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
         public async Task<IEnumerable<Turma>> BuscarTurmas()
         {
             try
@@ -29,6 +43,22 @@ namespace DataAcess.Data
 
                 throw new Exception(e.Message);
             }
+        }
+
+        public async Task CriarTurma(Turma turma)
+        {
+            await _db.SaveData("dbo.CriarTurma", 
+                new { turma.CursoId,turma.Nome,turma.Ano});
+        }
+
+        public async Task EditarTurma(Turma turma)
+        {
+            await _db.SaveData("dbo.EditarTurma", turma);
+        }
+
+        public async Task InativarTurma(int id)
+        {
+            await _db.SaveData("dbo.InativarTurma", new { id });
         }
     }
 }
