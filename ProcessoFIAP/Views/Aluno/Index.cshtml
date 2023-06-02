@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Aluno>
+@{
+}
+<h1>Alunos</h1>
+
+<a asp-action="Criar" asp-controller="Aluno" type="button" class="btn btn-primary">Criar Aluno</a>
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var aluno in Model)
+        {
+            <tr>
+                <th>@aluno.Nome</th>
+                <th>@aluno.Usuario</th>
+                <th>
+                    <a asp-controller="Aluno" asp-action="Editar" asp-route-id="@aluno.Id" class="btn btn-warning">Editar</a>
+                    <btn class="btn btn-danger">Inativar</btn>
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>

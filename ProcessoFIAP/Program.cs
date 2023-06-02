@@ -1,10 +1,14 @@
+using DataAcess.Data;
 using DataAcess.DbAccess;
+using ProcessoFIAP.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IDbDataAcess, DbDataAcess>();
+builder.Services.AddScoped<IAlunoData, AlunoData>();
+builder.Services.AddScoped<IAlunoService, AlunoService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

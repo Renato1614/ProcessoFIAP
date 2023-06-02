@@ -22,9 +22,18 @@ namespace DataAcess.DbAccess
                                                          U parameters,
                                                          string connectionString = "Default")
         {
-            using IDbConnection connection = new SqlConnection(_config.GetConnectionString(connectionString));
-            return await connection.QueryAsync<T>(StoredProcudure, parameters,
-                                                    commandType: CommandType.StoredProcedure);
+            try
+            {
+                using IDbConnection connection = new SqlConnection(_config.GetConnectionString(connectionString));
+                return await connection.QueryAsync<T>(StoredProcudure, parameters,
+                                                        commandType: CommandType.StoredProcedure);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+            
         }
 
         public async Task SaveData<T>(string StoredProcudure,

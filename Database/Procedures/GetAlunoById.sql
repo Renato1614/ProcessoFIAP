@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[GetAlunoById]
 	@id int
 AS
-	Select * from Aluno where Id= @id
+	Select * from Alunos where Id= @id
 RETURN 0
