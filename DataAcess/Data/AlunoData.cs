@@ -77,7 +77,19 @@ namespace DataAcess.Data
             }
         }
 
+        public async Task InativarAluno(int id)
+        {
+            try
+            {
+                await _sql.SaveData(
+                   StoredProcudure: "dbo.InativarAluno",
+                    new {Id=id});
+            }
+            catch (Exception e)
+            {
 
-
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

@@ -8,5 +8,6 @@ namespace ProcessoFIAP.Services
         Task<IEnumerable<Aluno>> BuscarTodos();
         Task CriarAluno(Aluno aluno);
         Task EditarAluno(Aluno aluno);
+        Task InativarAluno(int id);
     }
 }

@@ -3,7 +3,7 @@
 }
 
 <h1>Criar Aluno</h1>
-
+<span class="alert-danger"> @Html.ValidationMessage("SenhaForte")</span>
 <form method="post" asp-action="Criar">
     <div class="col-7">
         <label asp-for="Nome"> </label>

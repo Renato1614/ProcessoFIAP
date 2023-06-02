@@ -8,5 +8,6 @@ namespace DataAcess.Data
         Task<Aluno> BuscarAlunoPorId(int id);
         Task CriarAluno(Aluno aluno);
         Task EditarAluno(Aluno aluno);
+        Task InativarAluno(int id);
     }
 }
