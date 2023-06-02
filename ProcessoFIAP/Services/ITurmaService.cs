@@ -5,9 +5,10 @@ namespace ProcessoFIAP.Services
     public interface ITurmaService
     {
         Task<IEnumerable<Turma>> BuscarTurmas();
-        Task CriarTurma(Turma turma);
+        Task<bool> CriarTurma(Turma turma);
         Task<Turma> BuscarTurmaPorId(int id);
         Task EditarTurma(Turma turma);
         Task InativarTurma(int id);
+        Task<bool> VerificaSeExisteTurmaComOMesmoNome(string nome);
     }
 }

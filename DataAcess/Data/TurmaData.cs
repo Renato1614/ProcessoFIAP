@@ -31,6 +31,20 @@ namespace DataAcess.Data
             }
         }
 
+        public async Task<Turma> BuscarTurmaPorNome(string nome)
+        {
+            try
+            {
+                var turma = await _db.LoadData<Turma, dynamic>("dbo.BuscarTurmaPorNome", new { nome = nome });
+                return turma.FirstOrDefault();
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
         public async Task<IEnumerable<Turma>> BuscarTurmas()
         {
             try

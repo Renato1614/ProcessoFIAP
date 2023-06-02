@@ -1,6 +1,7 @@
 ﻿@model Turma
 
 <h1>Editar Turma</h1>
+<span class="alert-danger">@Html.ValidationMessage("NomeDuplicado")</span>
 
 <form method="post" asp-action="Editar">
     <div class="col-7">

@@ -18,6 +18,12 @@ namespace ProcessoFIAP.Services
             return await _db.BuscarTurmaPorId(id);
         }
 
+        public async Task<bool> VerificaSeExisteTurmaComOMesmoNome(string nome)
+        {
+            var turma = await _db.BuscarTurmaPorNome(nome);
+            return turma != null;
+        }
+
         public async Task<IEnumerable<Turma>> BuscarTurmas()
         {
             return await _db.BuscarTurmas();
