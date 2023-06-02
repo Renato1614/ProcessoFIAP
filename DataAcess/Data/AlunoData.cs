@@ -10,7 +10,7 @@ namespace DataAcess.Data
 {
     public class AlunoData : IAlunoData
     {
-        IDbDataAcess _sql;
+        private readonly IDbDataAcess _sql;
 
         public AlunoData(IDbDataAcess sql)
         {
@@ -51,7 +51,7 @@ namespace DataAcess.Data
         {
             try
             {
-                var result = await _sql.LoadData<Aluno, dynamic>("dbo.GetAlunoById", new { Id = id });
+                var result = await _sql.LoadData<Aluno, dynamic>("dbo.BuscarAlunoPorId", new { Id = id });
                 var primei = result.FirstOrDefault();
                 return primei;
 
@@ -67,7 +67,7 @@ namespace DataAcess.Data
         {
             try
             {
-                return await _sql.LoadData<Aluno, dynamic>("dbo.GetAllAlunos", new { });
+                return await _sql.LoadData<Aluno, dynamic>("dbo.BuscarTodosOsAlunosAtivos", new { });
 
             }
             catch (Exception e)

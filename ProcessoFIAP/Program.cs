@@ -9,6 +9,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IDbDataAcess, DbDataAcess>();
 builder.Services.AddScoped<IAlunoData, AlunoData>();
 builder.Services.AddScoped<IAlunoService, AlunoService>();
+builder.Services.AddScoped<ITurmaData, TurmaData>();
+builder.Services.AddScoped<ITurmaService, TurmaService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

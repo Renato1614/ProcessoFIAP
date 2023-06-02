@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[GetAlunoById]
+﻿CREATE PROCEDURE [dbo].[BuscarAlunoPorId]
 	@id int
 AS
 	Select * from Alunos where Id= @id
