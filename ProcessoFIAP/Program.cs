@@ -1,8 +1,10 @@
+using DataAcess.DbAccess;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddScoped<IDbDataAcess, DbDataAcess>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
