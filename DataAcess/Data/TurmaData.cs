@@ -31,11 +31,11 @@ namespace DataAcess.Data
             }
         }
 
-        public async Task<Turma> BuscarTurmaPorNome(string nome)
+        public async Task<Turma> BuscarTurmaPorNome(string nome, int id)
         {
             try
             {
-                var turma = await _db.LoadData<Turma, dynamic>("dbo.BuscarTurmaPorNome", new { nome = nome });
+                var turma = await _db.LoadData<Turma, dynamic>("dbo.BuscarTurmaPorNome", new { nome, id });
                 return turma.FirstOrDefault();
             }
             catch (Exception e)

@@ -80,9 +80,9 @@ namespace ProcessoFIAP.Controllers
             return true;
         }
 
-        private async Task<bool> VerificaTurmaDuplicada(string nome)
+        private async Task<bool> VerificaTurmaDuplicada(string nome, int id)
         {
-            if (await _turma.VerificaSeExisteTurmaComOMesmoNome(nome))
+            if (await _turma.VerificaSeExisteTurmaComOMesmoNome(nome, id))
             {
                 ModelState.AddModelError("NomeDuplicado", "Não pode ter mais de 1 turma com o mesmo nome");
                 return false;
@@ -91,7 +91,7 @@ namespace ProcessoFIAP.Controllers
         }
         private async Task<bool> VerificaCondicoesDeRegradeAnoENomeDaTurma(Turma turma)
         {
-            return VerificaAno(turma.Ano) && await VerificaTurmaDuplicada(turma.Nome);
+            return VerificaAno(turma.Ano) && await VerificaTurmaDuplicada(turma.Nome, turma.Id);
         }
 
         #endregion

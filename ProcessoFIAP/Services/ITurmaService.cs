@@ -9,6 +9,6 @@ namespace ProcessoFIAP.Services
         Task<Turma> BuscarTurmaPorId(int id);
         Task EditarTurma(Turma turma);
         Task InativarTurma(int id);
-        Task<bool> VerificaSeExisteTurmaComOMesmoNome(string nome);
+        Task<bool> VerificaSeExisteTurmaComOMesmoNome(string nome, int id);
     }
 }
