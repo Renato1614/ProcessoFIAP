@@ -1,0 +1,51 @@
+﻿@using Model.Models;
+@model AlunoTurma
+@{
+    var ListAlunos = (IEnumerable<Aluno>)ViewData["Alunos"];
+    var ListTurmas = (IEnumerable<Turma>)ViewData["Turmas"];
+}
+<h1>Criar nova Relação Aluno com Turma</h1>
+<form method="post", asp-action="Criar">
+    <div class="col-7">
+        <label asp-for="NomeAluno"></label>
+        @Html.DropDownList("NomeAluno",
+        new SelectList(ListAlunos, "Id","Nome"))
+    </div>
+    <br>
+    <div class="col-7">
+        <label asp-for="NomeTurma"></label>
+        @Html.DropDownList("NomeTurma",
+        new SelectList(ListTurmas, "Id","Nome")
+        )
+    </div>
+    <br />
+</form>
+<button class="btn btn-success" onclick="Relacionar()">Relacionar</button>
+
+@section Scripts{
+    <script>
+        function Relacionar(){
+            let idAluno = $("#NomeAluno").val()
+            let idTurma = $("#NomeTurma").val()
+            let data = {idAluno:idAluno,
+                        idTurma:idTurma}
+            $.ajax({
+                method:"POST",
+                url:"/AlunoTurma/Criar",
+                data:data,
+                success:(retorno) =>{
+                    if(retorno){
+                        alert("Relação feita com sucesso!")
+                        window.location.href = "/AlunoTurma/";
+                    }
+                    else{
+                        alert("Relação ja existente e não pode ser repetida")
+                    }
+                },
+                error:()=>{
+                    alert("Erro ao relacionar a turma com o aluno!")
+                }
+            });
+        }
+    </script>
+}

@@ -3,6 +3,8 @@
 
 <h1>Relação Aluno Turma</h1>
 
+<a asp-action="Criar" asp-controller="AlunoTurma" type="button" class="btn btn-primary">Criar Relação Aluno com Turma</a>
+
 
 <table class="table">
     <thead class="thead-dark">
@@ -19,10 +21,35 @@
                 <th>@alunoTurma.NomeTurma</th>
                 <th>@alunoTurma.NomeAluno</th>
                 <th>
-                    <a asp-controller="Aluno" asp-action="Editar" asp-route-id="@alunoTurma.Id" class="btn btn-warning">Editar</a>
-                    <btn class="btn btn-danger" onclick="InativarAluno(@alunoTurma.Id)">Inativar</btn>
+                    <btn class="btn btn-danger" onclick="Inativar(@alunoTurma.Id)">Inativar</btn>
                 </th>
             </tr>
         }
     </tbody>
 </table>
+
+@section Scripts {
+    <script>
+        function Inativar(id){
+            if (confirm("Quer mesmo inativar esse relacionamento?")) {
+                $.ajax({
+                    method: "POST",
+                    url: "/AlunoTurma/Inativar",
+                    data: { id: id },
+                    success: (retorno) => {
+                        if (retorno) {
+                            alert("Relação deletada com sucesso")
+                            location.reload()
+                        }
+                        else {
+                            console.log(retorno)
+                            alert("Erro ao deletar o Aluno")
+                        }
+
+
+                    }
+                })
+            }
+        }
+    </script>
+}

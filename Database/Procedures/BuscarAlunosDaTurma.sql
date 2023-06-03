@@ -5,4 +5,5 @@ AS
 	inner join Alunos a on a.id = at.AlunoId
 	inner join Turmas t on t.id = at.TurmaId
 	where TurmaId = @idTurma
+	order by t.Nome
 RETURN 0
