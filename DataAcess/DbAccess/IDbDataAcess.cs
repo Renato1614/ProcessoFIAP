@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using DataAcess.Data;
+using Microsoft.Extensions.Configuration;
 
 namespace DataAcess.DbAccess
 {

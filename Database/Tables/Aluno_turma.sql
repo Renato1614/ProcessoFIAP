@@ -1,7 +1,9 @@
-﻿CREATE TABLE [dbo].[Aluno_turma]
+﻿CREATE TABLE [dbo].[Aluno_Turma]
 (
-	[Id] INT NOT NULL , 
-    [TurmaId] NCHAR(10) NOT NULL, 
-    [AlunoId] NCHAR(10) NOT NULL, 
-    PRIMARY KEY ([Id])
+	[Id] INT  IDENTITY (1, 1) NOT NULL , 
+    [TurmaId] INT NOT NULL, 
+    [AlunoId] INT NOT NULL, 
+    PRIMARY KEY ([Id]), 
+    CONSTRAINT [FK_AlunoTurma_Alunos] FOREIGN KEY ([AlunoId]) REFERENCES [Alunos]([Id]), 
+    CONSTRAINT [FK_AlunoTurma_Turmas] FOREIGN KEY ([TurmaId]) REFERENCES [Turmas]([Id]), 
 )

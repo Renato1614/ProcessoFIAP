@@ -52,8 +52,8 @@ namespace DataAcess.Data
             try
             {
                 var result = await _sql.LoadData<Aluno, dynamic>("dbo.BuscarAlunoPorId", new { Id = id });
-                var primei = result.FirstOrDefault();
-                return primei;
+                var primeiro = result.FirstOrDefault();
+                return primeiro;
 
             }
             catch (Exception e)

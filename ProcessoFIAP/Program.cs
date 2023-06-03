@@ -11,6 +11,8 @@ builder.Services.AddScoped<IAlunoData, AlunoData>();
 builder.Services.AddScoped<IAlunoService, AlunoService>();
 builder.Services.AddScoped<ITurmaData, TurmaData>();
 builder.Services.AddScoped<ITurmaService, TurmaService>();
+builder.Services.AddScoped<IAlunoTurmaData, AlunoTurmaData>();
+builder.Services.AddScoped<IAlunoTurmaService, AlunoTurmaService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
